@@ -41,7 +41,7 @@ class ContentInquirer {
         new inquirer.Separator(),
         {
           name: 'Manual',
-          value: 'custom'
+          value: 'manual'
         }],
       },
       {

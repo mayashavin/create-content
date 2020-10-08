@@ -33,15 +33,20 @@ class Generator {
 
     spinner.start()
 
-    const template = fs.readFileSync(join(__dirname, 'templates', options.template), 'utf8')
-    const extension = options.template.substring(options.template.lastIndexOf('.'))
-    const dirPath = join(process.cwd(), options.directory)
-    const contents = ejs.render(template, {
-      options
-    })
+    const dirPath = join(process.cwd(), options.directory)    
 
     if (!isDirExist) {
       fs.mkdirSync(dirPath, { recursive: true })
+    }
+
+    const extension = options.template === 'manual' ? options.type : options.template.substring(options.template.lastIndexOf('.'))
+    let contents = ''
+
+    if (options.template !== 'manual') {
+      const template = fs.readFileSync(join(__dirname, 'templates', options.template), 'utf8')
+      contents = ejs.render(template, {
+        options
+      })
     }
 
     fs.writeFileSync(join(dirPath, `${file}${extension}`), contents)
