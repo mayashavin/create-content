@@ -1,4 +1,9 @@
 # create-content
+<!-- badge -->
+[![npm version](https://img.shields.io/npm/v/create-content.svg)](https://www.npmjs.com/package/create-content)
+[![npm download](https://img.shields.io/npm/dt/create-content.svg)](https://www.npmjs.com/package/create-content)
+[![npm license](https://img.shields.io/npm/l/create-content.svg)](https://www.npmjs.com/package/create-content)
+<!-- endbadge -->
 
 ![Create a content file automatically](https://res.cloudinary.com/mayashavin/image/upload/v1602193382/create-content.jpg)
 
