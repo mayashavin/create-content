@@ -1,10 +1,6 @@
 # create-content
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-[![Codecov][codecov-src]][codecov-href]
-[![License][license-src]][license-href]
+![Create a content file automatically](https://res.cloudinary.com/mayashavin/image/upload/v1602193382/create-content.jpg)
 
 A CLI tool to auto generate a content file (Markdown, CSV, YAML) based on available templates or customized templates. 
 
