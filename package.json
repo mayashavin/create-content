@@ -1,6 +1,6 @@
 {
   "name": "create-content",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Script to create easy docs from templates for blog post, documentation page, or from your own template.",
   "main": "src/index.js",
   "bin": "src/index.js",
@@ -35,8 +35,5 @@
   },
   "devDependencies": {
     "@types/ejs": "^3.0.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
