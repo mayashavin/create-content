@@ -1,77 +1,25 @@
 const inquirer = require('inquirer')
 const chalk = require('chalk')
-const fs = require('fs')
-const yaml = require('js-yaml')
-const { join } = require('path')
 const { log, clear } = require('console')
-
-const excludePath = path => ['node_modules', '.git', '.nuxt', '.vercel'].reduce((isExclude, folder) => isExclude || path.startsWith(folder), false)
+const templateDatas = require('../generator/templates/list')
+const basics = require('../generator/templates/basics')
 
 inquirer.registerPrompt('datetime', require('inquirer-datepicker-prompt'))
 inquirer.registerPrompt('fuzzypath', require('inquirer-fuzzy-path'))
 
 class ContentInquirer {
   constructor() {}
-  get questions() {
-    return [
-      {
-        name: 'directory',
-        type: 'fuzzypath',
-        message: 'Save to directory:',
-        excludePath,
-        itemType: 'directory',
-        default: 'content/',
-        suggestOnly: true,
-      },
-      {
-        name: 'template',
-        type: 'list',
-        message: 'Please pick from a template:',
-        default: 'post',
-        choices: [{
-          name: 'Blog post/article',
-          value: 'post'
-        }, {
-          name: 'Product page',
-          value: 'product'
-        }, {
-          name: 'Documentation page',
-          value: 'doc'
-        }, 
-        new inquirer.Separator(),
-        {
-          name: 'Manual',
-          value: 'manual'
-        }],
-      },
-      {
-        name: 'type',
-        type: 'list',
-        message: 'Choose the file type:',
-        choices: [{
-          name: 'Markdown',
-          value: '.md'
-        }, {
-          name: 'CSV',
-          value: '.csv'
-        }, {
-          name: 'YAML',
-          value: '.yaml'
-        }],
-        default: '.md',
-        when: (response) => response.template === 'manual'
-      },
-    ]
-  }
+  /**
+   * Inquire questions for setting up the file
+   * @param {Object} options - contains filename given from the console 
+   * @returns {Object}
+   */
   async prompt({ filename }) {
-    const content = fs.readFileSync(join(__dirname,'../generator', 'templates', 'index.yaml'), 'utf8')
-    const data = yaml.safeLoadAll(content)
-
-    const starters = await inquirer.prompt(this.questions)
+    const starters = await inquirer.prompt(basics)
 
     if (starters.template === 'manual') return starters
 
-    const next = data.find(sect => sect.type === starters.template)
+    const next = templateDatas.find(sect => sect.type === starters.template)
 
     clear()
     log(chalk.yellow(`🗒️\ Setup basic content for ${next.title.toLowerCase()} "${filename}":`))

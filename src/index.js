@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const chalk = require('chalk')
 const { log, clear } = require('console')
 const figlet = require('figlet')

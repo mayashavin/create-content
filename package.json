@@ -1,8 +1,9 @@
 {
-  "name": "create-content-files",
-  "version": "1.0.0",
-  "description": "Script to create easy docs from template",
+  "name": "create-content",
+  "version": "0.0.3",
+  "description": "Script to create easy docs from templates for blog post, documentation page, or from your own template.",
   "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +13,12 @@
     "docs",
     "markdown",
     "csv",
-    "nodejs"
+    "nodejs",
+    "post",
+    "frontmatter",
+    "yaml",
+    "article",
+    "template"
   ],
   "author": "Maya Shavin",
   "license": "MIT",
@@ -26,11 +32,11 @@
     "inquirer-datepicker-prompt": "^0.4.2",
     "inquirer-file-tree-selection-prompt": "^1.0.6",
     "inquirer-fuzzy-path": "^2.3.0",
-    "js-yaml": "^3.14.0",
-    "lodash": "^4.17.20",
-    "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@types/ejs": "^3.0.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

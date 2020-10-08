@@ -6,8 +6,19 @@ const { Spinner } = require('clui')
 const ejs = require('ejs')
 // const ContentInquirer = require('../inquirer')
 
+/**
+ * @typedef {Object} Options
+ * @property {String} directory
+ * @property {String} template
+ */
+
 class Generator {
   constructor(){}
+  /**
+   * Create file based on given file name and options
+   * @param {String} file 
+   * @param {Options} options 
+   */
   async create(file, options) {
     if (!file) return;
 
@@ -54,9 +65,14 @@ class Generator {
     spinner.stop()
 
     log('')
-    log(chalk.yellow(`🚀\ File "${file}" created successfully! Enjoy\ ❤️\!`))
+    log(chalk.yellow(`🚀\ File "${chalk.green(file)}" created successfully! Enjoy\ ❤️\!`))
     log('')
   }
+  // TODO - Save a manual created template
+  /**
+   * Create and save a new template
+   * @param {Options} options - confirgurations
+   */
   template(options) {}
 }
 
