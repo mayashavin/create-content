@@ -20,7 +20,7 @@ class ContentInquirer {
         message: 'Save to directory:',
         excludePath,
         itemType: 'directory',
-        default: 'src/',
+        default: 'content/',
         suggestOnly: true,
       },
       {
@@ -64,7 +64,7 @@ class ContentInquirer {
     ]
   }
   async prompt({ filename }) {
-    const content = fs.readFileSync(join(process.cwd(),'src', 'templates', 'index.yaml'), 'utf8')
+    const content = fs.readFileSync(join(__dirname,'../generator', 'templates', 'index.yaml'), 'utf8')
     const data = yaml.safeLoadAll(content)
 
     const starters = await inquirer.prompt(this.questions)

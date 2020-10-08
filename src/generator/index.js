@@ -33,7 +33,7 @@ class Generator {
 
     spinner.start()
 
-    const template = fs.readFileSync(join(process.cwd(), 'src/templates', options.template), 'utf8')
+    const template = fs.readFileSync(join(__dirname, 'templates', options.template), 'utf8')
     const extension = options.template.substring(options.template.lastIndexOf('.'))
     const dirPath = join(process.cwd(), options.directory)
     const contents = ejs.render(template, {
