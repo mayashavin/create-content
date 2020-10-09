@@ -11,6 +11,20 @@ A CLI tool to auto generate a content file (Markdown, CSV, YAML) based on availa
 
 > Designed especially for working with [Nuxtjs](https://nuxtjs.org) and [Content module](https://content.nuxtjs.org).
 
+## Install
+
+```bash
+npm i create-content
+```
+
+## 👩‍💻 How to run
+
+```bash
+create-content your-file-name
+```
+
+And then select from the options to create you file.
+
 ## Features
 
 * Create a content file based on an **existing** templates:
